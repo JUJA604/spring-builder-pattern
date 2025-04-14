@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>게시글 목록</title>
+</head>
+<body>
+<div style="display:flex; align-items: center; justify-content: space-between">
+    <h1>게시글 목록</h1>
+    <form action="/article/write" method="get">
+        <button>등록</button>
+    </form>
+</div>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>내용</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="article : ${articles}">
+        <td th:text="${article.articleId}">1</td>
+        <td th:text="${article.title}">제목</td>
+        <td th:text="${article.content}">내용</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
